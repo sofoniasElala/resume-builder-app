@@ -19,6 +19,10 @@ form {
     gap: 25px;
 }
 
+.tab {
+    border-style: dotted;
+}
+
 
 section {
     background-color: rgb(255, 255, 255);
