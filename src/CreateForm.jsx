@@ -15,29 +15,39 @@ export default function CreateForm({ inputData }) {
     );
   });}
 
-  const [currentValues, setCurrentValues] = useState(inputElements());
+  const [currentValues, setCurrentValues] = useState({id: null, values: []});
 
   function newInput(){
     handleInputVisible();
-    setCurrentValues(inputElements());
+    setCurrentValues({id: null, values: []});
   }
 
   function handleInputVisible(){
     setInputVisible(!inputsVisible);
   }
 
-  function updateCurrentValue(value){
-    setCurrentValues(value);
+  function updateCurrentValue(id, updatedValue){
+    setCurrentValues({id, values: updatedValue});
     console.log(savedValues);
   }
 
   function handleForm(e){
     e.preventDefault();
+
+    let updated = false;
     const form = e.currentTarget;
     const formData = new FormData(form);
     const inputValue = Array.from(formData.values());
+    const newPossibleValues = savedValues.map(values => {
+      if(values.id === currentValues.id) {
+        updated = true;
+        return {id: values.id, values: inputValue}
+      }
+      return values;
+    })
+    const newValues = updated ? [...newPossibleValues] : [...savedValues, {id: savedValues.length, values: inputValue}];
 
-    setSavedValues([...savedValues, inputValue]);
+    setSavedValues(newValues);
     
 
     handleInputVisible();
@@ -53,7 +63,7 @@ export default function CreateForm({ inputData }) {
         <AddedForms savedValues={savedValues} updateCurrentValue={updateCurrentValue} inputElements={inputElements} visible={handleInputVisible}/>
         {formHeader !== "Personal Details" && !inputsVisible ? (
           <button type='button' onClick={newInput} className="add">{"Add"}</button>
-        ) : currentValues}
+        ) : inputElements([...currentValues.values])}
         {(inputsVisible || formHeader === "Personal Details") && <button type='submit'>Save</button>}
       </form>
     </>
