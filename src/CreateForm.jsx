@@ -2,9 +2,9 @@ import { useState } from "react";
 import AddedForms from "./addedForms";
 import { v4 as uuidv4 } from "uuid";
 
-export default function CreateForm({ inputData }) {
+export default function CreateForm({ resume, updateResume, inputData, form }) {
   const [inputsVisible, setInputVisible] = useState(false);
-  const [savedValues, setSavedValues] = useState([]);
+ // const [resume, updateResume] = useState([]);
   const [currentValues, setCurrentValues] = useState({ id: null, values: [] });
   const [editButtonsVisible, setEditButtonsVisible] = useState(false);
 
@@ -35,8 +35,8 @@ export default function CreateForm({ inputData }) {
   }
 
   function deleteForm(id){
-    const newAddedForms = savedValues.filter(values => values.id !== id);
-    setSavedValues(newAddedForms);
+    const newAddedForms = resume[form].filter(values => values.id !== id);
+    updateResume({...resume, [form]: newAddedForms});
   }
 
   function handleEditInputVisible() {
@@ -47,17 +47,17 @@ export default function CreateForm({ inputData }) {
     setCurrentValues({ id, values: updatedValue });
     handleInputVisible();
     handleEditInputVisible();
-    console.log(savedValues);
+    console.log(resume);
   }
 
   function handleForm(e) {
     e.preventDefault();
 
     let updated = false;
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formInputs = e.currentTarget;
+    const formData = new FormData(formInputs);
     const inputValue = Array.from(formData.values());
-    const newPossibleValues = savedValues.map((values) => {
+    const newPossibleValues = resume[form].map((values) => {
       if (values.id === currentValues.id) {
         updated = true;
         return { id: values.id, values: inputValue };
@@ -66,10 +66,10 @@ export default function CreateForm({ inputData }) {
     });
     const newValues = updated
       ? [...newPossibleValues]
-      : [...savedValues, { id: uuidv4(), values: inputValue }];
+      : [...resume[form], { id: uuidv4(), values: inputValue }];
 
 
-    setSavedValues(newValues);
+    updateResume({...resume, [form]: newValues});
 
     handleInputVisible();
     // setFormInstances([...formInstances, {tab: <div onClick={() => setEditInputVisible(!editInputVisible)} className="tab">{inputValue[0]}</div>, inputElements}]);
@@ -83,13 +83,13 @@ export default function CreateForm({ inputData }) {
         <h2>{formHeader}</h2>
         {!inputsVisible && (
           <AddedForms
-            savedValues={savedValues}
+            resume={resume[form]}
             updateCurrentValue={updateCurrentValue}
             inputElements={inputElements}
             deleteForm={deleteForm}
           />
         )}
-        {((!inputsVisible && formHeader !== "Personal Details") || (!inputsVisible && formHeader === "Personal Details" && savedValues.length === 0)) && (
+        {((!inputsVisible && formHeader !== "Personal Details") || (!inputsVisible && formHeader === "Personal Details" && resume[form].length === 0)) && (
           <button type="button" onClick={newInput} className="add">
             {"Add"}
           </button>

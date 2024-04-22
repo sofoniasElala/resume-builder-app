@@ -1,4 +1,4 @@
-export default function AddedForms({savedValues, updateCurrentValue, deleteForm}){
+export default function AddedForms({resume, updateCurrentValue, deleteForm}){
 
     function editMode(element, value){
        // const inputsFilled = inputElements([...value.toReversed()]);
@@ -10,7 +10,7 @@ export default function AddedForms({savedValues, updateCurrentValue, deleteForm}
         e.stopPropagation();
         deleteForm(id)
     }
-    return savedValues.map((value) => {
+    return resume.map((value) => {
         return <div key={value.values[0]} onClick={(e) => editMode(e, value)} className="tab">{value.values[0]}<button onClick={(e) => deleteCurrentForm(e, value.id)} >D</button></div>
     });
 }
