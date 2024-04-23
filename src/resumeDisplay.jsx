@@ -3,8 +3,7 @@ import "./resumeDisplay.css";
 
 function getAddedFormsInElements(values, placeholder=[], id=null){
     return (
-        <Fragment key={id? id :placeholder[0]} > 
-        <div className="form-instance">
+        <div key={id? id :placeholder[0]} className="form-instance">
           <div className="form-title">
             <span className="company-or-school-location">
               {(values[0] ? values[0] : placeholder[0] + '*') + ", " + '\u00A0\u00A0' + (values[4] ? values[4] : placeholder[4] + '*')}
@@ -14,8 +13,8 @@ function getAddedFormsInElements(values, placeholder=[], id=null){
           <div className="date">
             {(values[2] ? values[2] : placeholder[2] + '*') + " - " + (values[3] ? values[3] : placeholder[3] + '*')}
           </div>
+          {<p className="textarea">{values[5] ? values[5] : placeholder[5]}</p>}
         </div>
-        </Fragment>
       );
 }
 

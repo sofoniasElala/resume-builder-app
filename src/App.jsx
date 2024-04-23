@@ -1,5 +1,6 @@
 import CreateForm from "./CreateForm";
 import { personalDetails, educationDetails, experienceDetails } from "./formInputData";
+import ResumeDisplay from "./resumeDisplay";
 import './App.css';
 import { useState } from "react";
 
@@ -14,10 +15,12 @@ function App() {
       <main>
         <div className="forms">
           <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'personalDetailsForm'} inputData={[personalDetails, "Personal Details"]} />
+          <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'experienceDetailsForm'} inputData={[experienceDetails, "Experience"]} />
           <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'educationDetailsForm'} inputData={[educationDetails, "Education"]} />
-          <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'educationDetailsForm'} inputData={[experienceDetails, "Experience"]} />
         </div>
-        <section></section>
+        <section>
+          <ResumeDisplay allFormValues={allFormValues} allPlaceholders={{personalDetails, educationDetails, experienceDetails}}/>
+        </section>
       </main>
     </>
   );

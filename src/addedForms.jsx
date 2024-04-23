@@ -1,8 +1,7 @@
+import trashIcon from './assets/trash-solid.svg'
 export default function AddedForms({resume, updateCurrentValue, deleteForm}){
 
-    function editMode(element, value){
-       // const inputsFilled = inputElements([...value.toReversed()]);
-        console.log(value)
+    function editMode(value){
         updateCurrentValue(value.id, [...value.values.toReversed()]);
     }
 
@@ -11,6 +10,6 @@ export default function AddedForms({resume, updateCurrentValue, deleteForm}){
         deleteForm(id)
     }
     return resume.map((value) => {
-        return <div key={value.values[0]} onClick={(e) => editMode(e, value)} className="tab">{value.values[0]}<button onClick={(e) => deleteCurrentForm(e, value.id)} >D</button></div>
+    return <div key={value.values[0]} onClick={() => editMode(value)} className="tab">{value.values[0]}<button width='15px' onClick={(e) => deleteCurrentForm(e, value.id)} ><img width='15px' src={trashIcon} alt="delete" /></button></div>
     });
 }

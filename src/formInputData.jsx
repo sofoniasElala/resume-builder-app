@@ -14,6 +14,11 @@ const personalDetails = [
     placeholder: "000-000-0000",
     type: "tel",
   },
+  {
+    name: "Location",
+    placeholder: "Charlotte, NC, USA",
+    type: "text",
+  },
 ];
 
 const educationDetails = [
@@ -70,6 +75,10 @@ const experienceDetails = [
       placeholder: "Charlotte, NC, USA",
       type: "text",
     },
+    {
+      name: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore.",
+      type: 'textarea'
+      },
   ];
 
 export {personalDetails, educationDetails, experienceDetails}

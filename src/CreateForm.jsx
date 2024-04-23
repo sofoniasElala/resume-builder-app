@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import AddedForms from "./addedForms";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,8 +11,10 @@ export default function CreateForm({ resume, updateResume, inputData, form }) {
   const formHeader = inputData[1];
   const inputElements = (value = []) => {
     return inputData[0].map((input) => {
+      if(input.type !== 'textarea'){
       return (
-        <label key={input.name}>
+        <Fragment key={input.name} >
+        <label >
           {input.name}{" "}
           <input
             name={input.name}
@@ -21,7 +23,10 @@ export default function CreateForm({ resume, updateResume, inputData, form }) {
             defaultValue={value.pop()}
           />
         </label>
-      );
+        </Fragment>
+      ); } else {
+       return  <textarea  key={input.name} name={"Short Description"} rows="5" defaultValue={value.pop()}placeholder={"Short Description"}></textarea>
+      }
     });
   };
 
@@ -47,7 +52,6 @@ export default function CreateForm({ resume, updateResume, inputData, form }) {
     setCurrentValues({ id, values: updatedValue });
     handleInputVisible();
     handleEditInputVisible();
-    console.log(resume);
   }
 
   function handleForm(e) {
@@ -72,9 +76,6 @@ export default function CreateForm({ resume, updateResume, inputData, form }) {
     updateResume({...resume, [form]: newValues});
 
     handleInputVisible();
-    // setFormInstances([...formInstances, {tab: <div onClick={() => setEditInputVisible(!editInputVisible)} className="tab">{inputValue[0]}</div>, inputElements}]);
-    // {formInstances.map((instance, index) => <Fragment key={index}>{instance.tab}</Fragment>)}
-    //
   }
 
   return (
