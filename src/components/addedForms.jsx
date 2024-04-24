@@ -1,4 +1,4 @@
-import trashIcon from './assets/trash-solid.svg'
+import trashIcon from '../assets/trash-solid.svg'
 export default function AddedForms({resume, updateCurrentValue, deleteForm}){
 
     function editMode(value){

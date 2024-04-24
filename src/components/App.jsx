@@ -1,9 +1,9 @@
 import CreateForm from "./CreateForm";
 import { personalDetails, educationDetails, experienceDetails } from "./formInputData";
 import ResumeDisplay from "./resumeDisplay";
-import './App.css';
+import '../styles/App.css';
 import { useState } from "react";
-import downloadIcon from './assets/download-solid.svg';
+import downloadIcon from '../assets/download-solid.svg';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 

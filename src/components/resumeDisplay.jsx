@@ -1,4 +1,4 @@
-import "./resumeDisplay.css";
+import "../styles/resumeDisplay.css";
 
 function getAddedFormsInElements(values, placeholder=[], id=null){
     return (
