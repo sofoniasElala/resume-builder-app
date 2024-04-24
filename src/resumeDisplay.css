@@ -3,12 +3,13 @@
     src: url('/Oswald/Oswald-VariableFont_wght.ttf');
 }
 section {
+    position: relative;
     color: black;
     font-family: oswald;
     font-weight: 500;
     background-color: rgb(255, 255, 255);
-    width: 550px;
-    padding: 15px 80px;
+    width: 700px;
+    margin: 0px;
     overflow: scroll;
 }
 

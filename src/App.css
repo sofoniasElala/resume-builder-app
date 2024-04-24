@@ -55,3 +55,13 @@ form {
 textarea {
     resize: none;
 }
+.display {
+    padding: 15px 60px;
+    height: 100%;
+}
+.download-logo {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    cursor: pointer;
+}

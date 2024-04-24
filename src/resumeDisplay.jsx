@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import "./resumeDisplay.css";
 
 function getAddedFormsInElements(values, placeholder=[], id=null){
@@ -37,7 +36,7 @@ function getPersonalDetailsValues(personalDetailsForm, personalDetailsPlaceholde
 
 export default function ResumeDisplay({ allFormValues, allPlaceholders }) {
   return (
-    <Fragment key={'Fragment'}>
+    <div className="display" key={'Fragment'}>
       <p  className="personal">{getPersonalDetailsValues(allFormValues.personalDetailsForm, allPlaceholders.personalDetails, 3)}</p>
       <p className="personal">{getPersonalDetailsValues(allFormValues.personalDetailsForm, allPlaceholders.personalDetails, 2)}</p>
       <p  className="personal">{getPersonalDetailsValues(allFormValues.personalDetailsForm, allPlaceholders.personalDetails, 1)}</p>
@@ -53,6 +52,6 @@ export default function ResumeDisplay({ allFormValues, allPlaceholders }) {
         allFormValues.educationDetailsForm,
         allPlaceholders.educationDetails
       )}
-    </Fragment>
+    </div>
   );
 }

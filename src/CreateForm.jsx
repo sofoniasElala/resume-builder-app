@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function CreateForm({ resume, updateResume, inputData, form }) {
   const [inputsVisible, setInputVisible] = useState(false);
- // const [resume, updateResume] = useState([]);
   const [currentValues, setCurrentValues] = useState({ id: null, values: [] });
   const [editButtonsVisible, setEditButtonsVisible] = useState(false);
 
