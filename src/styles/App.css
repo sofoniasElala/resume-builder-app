@@ -16,6 +16,9 @@ form, label, .forms {
 input, footer {
     font-family: oswald;
 }
+input {
+    font-size: 16px;
+}
 
 form {
     gap: 15px;
