@@ -38,6 +38,7 @@ function App() {
           <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'personalDetailsForm'} inputData={[personalDetails, "Personal Details"]} />
           <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'experienceDetailsForm'} inputData={[experienceDetails, "Experience"]} />
           <CreateForm resume={allFormValues} updateResume={setAllFormValues} form={'educationDetailsForm'} inputData={[educationDetails, "Education"]} />
+          <footer>Copyright © <span id="date"></span> SofoniasElala  <a href="https://github.com/sofoniasElala/resume-builder-app/"><i className="fa-brands fa-github" style={{color: '#ffffff' }}></i></a> </footer>
         </div>
         <section>
           <img className="download-logo" width='20px' onClick={() => downloadResumePDF(allFormValues.personalDetailsForm[0] ? allFormValues.personalDetailsForm[0].values[0] : personalDetails[0].placeholder)} src={downloadIcon} alt="download as PDF" />
