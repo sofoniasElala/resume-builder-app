@@ -1,7 +1,7 @@
 # Resume builder
 [![Static Badge](https://img.shields.io/badge/Live%20Demo-blue)](https://sofonias-elala-resume-builder.netlify.app/) [![Netlify Status](https://api.netlify.com/api/v1/badges/ef8d5022-91a8-434f-a3b8-6e96cb12aa9b/deploy-status)](https://app.netlify.com/sites/sofonias-elala-resume-builder/deploys)
 ## Description
-### This app is a resume builder that creates a simple straight forward resume file.
+### This react app is a resume builder that creates a simple straight forward resume file.
 
 1. #### User-Friendly Interface:
      * it offers an intuitive and easy-to-use interface, enabling users to create their resumes quickly and efficiently.  
