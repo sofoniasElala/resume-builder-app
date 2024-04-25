@@ -25,4 +25,4 @@
   * REACT + Vite
   * html2canvas & jsPDF - for creating PDFs
   * uuid - generate unique identifiers
-  * eslint - airbnb style guide
+  * eslint
